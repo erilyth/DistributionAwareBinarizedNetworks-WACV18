@@ -1,0 +1,10 @@
+# Code for - Distribution-Aware Binarization of Neural Networks for Sketch Recognition (WACV 18)
+
+Deep neural networks are highly effective at a range of computational tasks. However, they tend to be computationally expensive, especially in vision-related problems, and also have large memory requirements. One of the most effective methods to achieve significant improvements in computational/spatial efficiency is to binarize the weights and activations in a network. However, naive binarization results in accuracy drops when applied to networks for most tasks. In this work, we present a highly generalized, distribution-aware approach to binarizing deep networks that allows us to retain the advantages of a binarized network, while reducing accuracy drops. We also develop efficient implementations for our proposed approach across different architectures. We present a theoretical analysis of the technique to show the effective representational power of the resulting layers, and explore the forms of data they model best. Experiments on popular datasets show that our technique offers better accuracies than naive binarization, while retaining the same benefits that binarization provides - with respect to run-time compression, reduction of computational costs, and power consumption.
+
+### Usage instructions
+* Clone the repo
+* Install PyTorch and other required dependencies
+* Run using,
+`bash clean.sh; CUDA_VISIBLE_DEVICES=0 python3 main.py --dataset='<dataset_name>' --data_dir='<dataset_path>' --nClasses=<num_classes> --workers=8 --epochs=<train_epochs> --batch-size=<batch_size> --testbatchsize=<test_batch_size> --learningratescheduler='<learningrate_scheduler>' --decayinterval=50 --decaylevel=2 --optimType='<optimizer>' --nesterov --tenCrop --maxlr=<max_learning_rate> --minlr=<min_learning_rate> --weightDecay=0 --binaryWeight --binStart=<bin_start> --binEnd=<bin_end> --model_def='<model_name>' --inpsize=<input_size> --name='<experiment_name>'`
+* You could also take a look at the existing scripts (runx.sh) for samples
